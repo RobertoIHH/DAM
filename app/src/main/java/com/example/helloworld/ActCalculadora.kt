@@ -1,15 +1,17 @@
 package com.example.helloworld
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import java.text.DecimalFormat
 
-class MainActivity : ComponentActivity() {
+class ActCalculadora : AppCompatActivity() {
 
     private lateinit var resultTextView: TextView
+    private lateinit var btnBackToMain: Button  // 🔥 Se declara correctamente
+
     private var currentInput: String = ""
     private var previousNumber: Double? = null
     private var currentOperation: String? = null
@@ -17,12 +19,20 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.layout) // Cambio aquí para usar layout.xml
+        setContentView(R.layout.calculadora) // 🔥 Se asegura que coincida con el XML
 
-        // Vinculación de vistas
+        // Inicializar vistas
         resultTextView = findViewById(R.id.resultTextView)
+        btnBackToMain = findViewById(R.id.btnBackToMain)  // 🔥 Se inicializa correctamente
 
+        // Configurar botón de regreso al menú principal
+        btnBackToMain.setOnClickListener {
+            val intent = Intent(this, Main::class.java) // 🔥 Se asegura que Intent está importado
+            startActivity(intent)
+            finish()
+        }
+
+        // Configuración de botones numéricos
         val buttons = listOf(
             R.id.zeroButton to "0", R.id.oneButton to "1", R.id.twoButton to "2",
             R.id.threeButton to "3", R.id.fourButton to "4", R.id.fiveButton to "5",
@@ -30,22 +40,21 @@ class MainActivity : ComponentActivity() {
             R.id.nineButton to "9"
         )
 
+        buttons.forEach { (id, value) ->
+            findViewById<Button>(id).setOnClickListener { appendNumber(value) }
+        }
+
+        // Configuración de botones de operaciones
         val operations = mapOf(
             R.id.addButton to "+", R.id.subtractButton to "-",
             R.id.multiplyButton to "×", R.id.divideButton to "÷"
         )
 
-        // Configuración de listeners para botones numéricos
-        buttons.forEach { (id, value) ->
-            findViewById<Button>(id).setOnClickListener { appendNumber(value) }
-        }
-
-        // Configuración de listeners para botones de operaciones
         operations.forEach { (id, op) ->
             findViewById<Button>(id).setOnClickListener { setOperation(op) }
         }
 
-        // Otros botones
+        // Configuración de otros botones
         findViewById<Button>(R.id.equalButton).setOnClickListener { calculateResult() }
         findViewById<Button>(R.id.clearButton).setOnClickListener { clear() }
         findViewById<Button>(R.id.decimalButton).setOnClickListener { appendDecimal() }
@@ -54,7 +63,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun appendNumber(number: String) {
-        if (currentInput == "0") currentInput = "" // Evita ceros innecesarios
+        if (currentInput == "0") currentInput = ""
         currentInput += number
         updateResultTextView()
     }

@@ -6,7 +6,7 @@
     android:background="#222222"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".ActCalculadora">
 
     <!-- Pantalla de la Calculadora -->
     <TextView
@@ -32,7 +32,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp">
 
-        <!-- Primera fila -->
+        <!-- Botones de la Calculadora -->
         <Button
             android:id="@+id/clearButton"
             style="@style/CalculatorButton"
@@ -57,93 +57,89 @@
             android:text="÷"
             android:backgroundTint="#FF9500" />
 
-        <!-- Segunda fila -->
+        <!-- Botones numéricos y operadores (manteniendo el formato anterior) -->
         <Button
             android:id="@+id/sevenButton"
             style="@style/CalculatorButton"
             android:text="7" />
-
         <Button
             android:id="@+id/eightButton"
             style="@style/CalculatorButton"
             android:text="8" />
-
         <Button
             android:id="@+id/nineButton"
             style="@style/CalculatorButton"
             android:text="9" />
-
         <Button
             android:id="@+id/multiplyButton"
             style="@style/CalculatorButton"
             android:text="×"
             android:backgroundTint="#FF9500" />
 
-        <!-- Tercera fila -->
         <Button
             android:id="@+id/fourButton"
             style="@style/CalculatorButton"
             android:text="4" />
-
         <Button
             android:id="@+id/fiveButton"
             style="@style/CalculatorButton"
             android:text="5" />
-
         <Button
             android:id="@+id/sixButton"
             style="@style/CalculatorButton"
             android:text="6" />
-
         <Button
             android:id="@+id/subtractButton"
             style="@style/CalculatorButton"
             android:text="-"
             android:backgroundTint="#FF9500" />
 
-        <!-- Cuarta fila -->
         <Button
             android:id="@+id/oneButton"
             style="@style/CalculatorButton"
             android:text="1" />
-
         <Button
             android:id="@+id/twoButton"
             style="@style/CalculatorButton"
             android:text="2" />
-
         <Button
             android:id="@+id/threeButton"
             style="@style/CalculatorButton"
             android:text="3" />
-
         <Button
             android:id="@+id/addButton"
             style="@style/CalculatorButton"
             android:text="+"
             android:backgroundTint="#FF9500" />
 
-        <!-- Quinta fila -->
         <Button
             android:id="@+id/zeroButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="2"
-            android:backgroundTint="#333333"
+            style="@style/CalculatorButton"
             android:text="0"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp" />
+            android:layout_columnSpan="2"
+            android:backgroundTint="#333333" />
 
         <Button
             android:id="@+id/decimalButton"
             style="@style/CalculatorButton"
             android:text="." />
-
         <Button
             android:id="@+id/equalButton"
             style="@style/CalculatorButton"
             android:text="="
             android:backgroundTint="#FF9500" />
     </GridLayout>
+
+    <!-- Botón para regresar a la pantalla principal -->
+    <Button
+        android:id="@+id/btnBackToMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volver al Menú Principal"
+        android:backgroundTint="#D32F2F"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"/>
+
 </LinearLayout>
