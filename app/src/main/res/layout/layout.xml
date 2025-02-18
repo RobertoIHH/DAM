@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#222222"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- Pantalla de la Calculadora -->
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:background="#333333"
+        android:gravity="bottom|end"
+        android:padding="24dp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="48sp"
+        android:textStyle="bold" />
+
+    <!-- Botones de la Calculadora -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:columnCount="4"
+        android:rowCount="5"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <!-- Primera fila -->
+        <Button
+            android:id="@+id/clearButton"
+            style="@style/CalculatorButton"
+            android:text="C"
+            android:backgroundTint="#A5A5A5" />
+
+        <Button
+            android:id="@+id/signButton"
+            style="@style/CalculatorButton"
+            android:text="+/-"
+            android:backgroundTint="#A5A5A5" />
+
+        <Button
+            android:id="@+id/percentButton"
+            style="@style/CalculatorButton"
+            android:text="%"
+            android:backgroundTint="#A5A5A5" />
+
+        <Button
+            android:id="@+id/divideButton"
+            style="@style/CalculatorButton"
+            android:text="÷"
+            android:backgroundTint="#FF9500" />
+
+        <!-- Segunda fila -->
+        <Button
+            android:id="@+id/sevenButton"
+            style="@style/CalculatorButton"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/eightButton"
+            style="@style/CalculatorButton"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/nineButton"
+            style="@style/CalculatorButton"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/multiplyButton"
+            style="@style/CalculatorButton"
+            android:text="×"
+            android:backgroundTint="#FF9500" />
+
+        <!-- Tercera fila -->
+        <Button
+            android:id="@+id/fourButton"
+            style="@style/CalculatorButton"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/fiveButton"
+            style="@style/CalculatorButton"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/sixButton"
+            style="@style/CalculatorButton"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/subtractButton"
+            style="@style/CalculatorButton"
+            android:text="-"
+            android:backgroundTint="#FF9500" />
+
+        <!-- Cuarta fila -->
+        <Button
+            android:id="@+id/oneButton"
+            style="@style/CalculatorButton"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/twoButton"
+            style="@style/CalculatorButton"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/threeButton"
+            style="@style/CalculatorButton"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/addButton"
+            style="@style/CalculatorButton"
+            android:text="+"
+            android:backgroundTint="#FF9500" />
+
+        <!-- Quinta fila -->
+        <Button
+            android:id="@+id/zeroButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="2"
+            android:backgroundTint="#333333"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/decimalButton"
+            style="@style/CalculatorButton"
+            android:text="." />
+
+        <Button
+            android:id="@+id/equalButton"
+            style="@style/CalculatorButton"
+            android:text="="
+            android:backgroundTint="#FF9500" />
+    </GridLayout>
+</LinearLayout>
